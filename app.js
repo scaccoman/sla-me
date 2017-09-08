@@ -13,7 +13,9 @@ var localStrategy           = require("passport-local");
 var passportLocalMongoose   = require("passport-local-mongoose");
 
 //APP + MONGOOSE CONFIGURATION
-mongoose.connect("mongodb://localhost/SLAme");
+//mongodb://<dbuser>:<dbpassword>@ds127864.mlab.com:27864/sla-me
+// mongoose.connect("mongodb://localhost/SLAme");
+mongoose.connect("mongodb://scaccoman:caccacacca@ds127864.mlab.com:27864/sla-me");
 mongoose.Promise = global.Promise;
 app.set("view engine", "ejs");
 app.use(express.static("public"));
