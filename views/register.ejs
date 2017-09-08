@@ -1,0 +1,22 @@
+<% include ./partials/header %>
+
+<form action="/register" method="POST" class="ui form" id="form">
+    <h1 style="color: white; padding-left: 9px">Sign Up</h1>
+  <div class="ui inverted segment">
+  <div class="ui inverted form">
+    <div class="two fields">
+      <div class="field">
+        <label>Username</label>
+        <input placeholder="Username" name="username" type="text">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input placeholder="Password" name="password" type="password">
+      </div>
+    </div>
+    <button class="ui submit button">Sign Up</button>
+  </div>
+</div>
+</form>
+
+<% include ./partials/footer %>

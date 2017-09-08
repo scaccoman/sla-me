@@ -1,0 +1,41 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui hude header">Edit <%= ticket.title %></div>
+    <form class="ui form" action="/tickets/<%= ticket._id%>?_method=PUT" method="POST">
+        <div class="field">
+            <lable>Title</lable>
+            <input type="text" name="ticket[title]" value="<%= ticket.title %>">
+        </div>
+        
+        <div class="field">
+            <label for="priority">Priority Level</label>
+              <select type="text" name="ticket[priority]" id="priority" value="<%= ticket.priority %>">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+             </select>
+        </div>
+        <div class="field">
+            <lable>Blog content</lable>
+            <textarea name="ticket[description]"><%= ticket.description %></textarea>
+        </div>
+        <div class="field">
+            <label>State</label>
+              <select type="text" name="ticket[state]">
+                <option>Work in Progress</option>
+                <option>Pending</option>
+                <option>Resolved</option>
+             </select>
+        </div>
+        <div class="ui buttons">
+          <button class="ui button"><a href="/tickets/<%= ticket._id%>">Cancel</a></button>
+        <div class="or"></div>
+          <button type="submit" class="ui positive button">Save</button>
+        </div>
+    </form>
+</div>
+
+<% include ./partials/footer %>

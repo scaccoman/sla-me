@@ -1,0 +1,85 @@
+<% include ./partials/header %>
+
+
+<!--//SCRIPT TO MOVE TO SERVER SIDE -->
+
+<%    var numOfTickets = ticket.length; %>
+<%    var workInProgress = 0; %>
+<%    var pending = 0; %>
+<%    var resolved = 0; %>
+<%    var percentageWorkInProgress; %>
+<%    var percentagePending; %>
+<%    var percentageResolved; %>
+<%    var percentageWorkInProgress2; %>
+<%    var percentagePending2; %>
+<%    var percentageResolved2; %>
+<%    for (var i = 0; i < ticket.length; i++){ %>
+<%            console.log("State ticket number: " + i + " e': " + ticket[i].state) %>
+<%        if (ticket[i].state === "Work in Progress") { %>
+<%            workInProgress = workInProgress + 1; %>
+<%            console.log("work in progress counter: " + workInProgress) %>
+<%        } else if (ticket[i].state === "Pending") { %>
+<%            pending = pending + 1; %>
+<%            console.log("pending counter: " + pending) %>
+<%        } else if (ticket[i].state === "Resolved"){ %>
+<%            resolved = resolved + 1; %>
+<%            console.log("resolved counter: " + resolved) %>
+<%        } else { %>
+<%        console.log("error in loop 1") %>
+<%        } %>
+<%    }; %>
+<%    for (var i = 0; i <= 3; i++){ %>
+<%        if (i === 0) { %>
+<%            percentageWorkInProgress = (workInProgress * 100 / numOfTickets); %>
+<%            percentageWorkInProgress = percentageWorkInProgress.toFixed(2); %>
+<%            console.log("percentageWorkInProgress " + percentageWorkInProgress) %>
+<%        } else if (i === 1) { %>
+<%            percentagePending = (pending * 100 / numOfTickets); %>
+<%            percentagePending = percentagePending.toFixed(2); %>
+<%            console.log("percentagePending " + percentagePending) %>
+<%        } else if (i === 2){ %>
+<%            percentageResolved = (resolved * 100 / numOfTickets); %>
+<%            percentageResolved = percentageResolved.toFixed(2); %>
+<%            console.log("percentageResolved " + percentageResolved) %>
+<%        } %>
+<%    }; %>
+
+<%    function isBigger(num1, num2, num3){ %>
+<%        if (num1 >= num2 && num1 >= num3) { %>
+<%            return true; %>
+<%        } else { %>
+<%            return false; %>
+<%        }; %>
+<%    }; %>
+    
+<%    function biggestNum() { %>
+<%        if (isBigger(workInProgress, pending, resolved)) { %>
+<%            percentageWorkInProgress2 = 100; %>
+<%            percentagePending2 = (pending * 100 / workInProgress); %>
+<%            percentageResolved2 = (resolved * 100 / workInProgress); %>
+<%        } else if (isBigger(pending, workInProgress, resolved)) { %>
+<%            percentagePending2 = 100; %>
+<%            percentageWorkInProgress2 = (workInProgress * 100 / pending); %>
+<%            percentageResolved2 = (resolved * 100 / pending); %>
+<%        } else if (isBigger(resolved, workInProgress, pending)) { %>
+<%            percentageResolved2 = 100; %>
+<%            percentageWorkInProgress2 = (workInProgress * 100 / resolved); %>
+<%            percentagePending2 = (pending * 100 / resolved); %>
+<%        } %>
+<%    } %>
+
+<% biggestNum() %>
+
+
+<div class="ui container main" id="chartContainer">
+    <br>
+    <br>
+    <div style="height: 300px; width:91%;">
+        <div class="nerdChart" id="chart1" style="width: <%= percentageWorkInProgress2 + 1.8 %>%;" /><%= workInProgress %></div><div class="lable">Work in Progress (<%=percentageWorkInProgress%>%)</div><br/>
+        <div class="nerdChart" id="chart2" style="width: <%= percentagePending2 + 1.8 %>%;" /><%= pending %></div><div class="lable">Pending (<%=percentagePending%>%)</div><br/>
+        <div class="nerdChart" id="chart3" style="width: <%= percentageResolved2 + 1.8 %>%;" /><%= resolved %></div><div class="lable">Resolved (<%=percentageResolved%>%)</div><br/>
+    </div>
+
+
+
+<% include ./partials/footer %>

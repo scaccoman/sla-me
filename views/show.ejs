@@ -1,0 +1,38 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment">
+    <a style="color:black;" href="/tickets"><div class="ui animated button" id="animatedBtn" tabindex="0">
+          <div class="visible content">Back</div>
+          <div class="hidden content">
+              <i class="left arrow icon"></i>
+          </div>
+    </a></div>
+    <div class="ui huge header"><%= ticket.title %></div>
+    <div class="ui top attached">
+        <div class="content">
+            <span>Reference Number: <%= ticket._id %></span>
+        </div>
+        <div class="content">
+            <span><%= ticket.created.toDateString() %></span>
+        </div>
+        <div class="content">
+            <p>State: <%= ticket.state %></p>
+        </div>
+        <div class="content">
+            <p>Priority Level: <%= ticket.priority %></p>
+        </div>
+            <br>
+        <div class="description">
+            <p><%= ticket.description %></p> 
+            <!--PUTTING THE MINUS(-) sign instead of = RUNS HTML CODE INCLUDING JS CODE - DANGEROUS, NEEDS TO BE SANITAZIED-->
+        </div>
+        <hr>
+        <a href="/tickets/<%= ticket._id %>/edit" class="ui orange basic button">Edit</a>
+        <form id="delete" action="/tickets/<%= ticket._id %>?_method=DELETE" method="POST">
+            <button class="ui red basic button">Delete</button>
+        </form>
+        
+    </div>
+</div>
+
+<% include ./partials/footer %>

@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>SLAme</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="/scripts/jquery-ui.min.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div><i id="menuBtn" class="icon sidebar"></i></div>
+        <div id="menu" class="ui left vertical inverted sidebar labeled icon menu">
+            <div class="header item"><i class="industry icon"></i>SLAme</div>
+          <a href="/" class="item">
+            <i class="home icon"></i>
+                Home
+          </a>
+          <a href="/tickets/new" class="item">
+        <i class="write layout icon"></i>
+                New Ticket
+         </a>
+          <a href="/stats" class="item">
+            <i class="Bar Chart icon"></i>
+                Nerd Stats
+          </a>
+          <a href="/register" class="item">
+        <i class="add user icon"></i>
+                Sign Up
+         </a>
+         <a href="/login" class="item">
+        <i class="Sign In icon"></i>
+                Sign In
+         </a>
+         <a href="/logout" class="item">
+        <i class="Sign Out icon"></i>
+                Sign Out
+         </a>
+        </div>
+        <form id="searchBar" action="/tickets/search" method="POST">
+            <div class="ui inverted input">
+                <input name="ticket[_id]" type="text" placeholder="Search by ID..." id="searchInput">
+            </div>
+        </form>
+    
+        
+        
+        <!--<div class="ui fixed menu">-->
+        <!--    <div class="ui container">-->
+        <!--        <div class="header item"><i class="industry icon"></i>SLAme</div>-->
+        <!--        <a href="/" class="item">Home</a>-->
+        <!--        <a href="/tickets/new" class="item">New Ticket</a>-->
+        <!--    </div>-->
+        <!--</div>-->

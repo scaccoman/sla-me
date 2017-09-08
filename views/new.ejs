@@ -1,0 +1,37 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui hude header">New Ticket</div>
+    <form class="ui form" action="/tickets" method="POST">
+        <div class="field">
+            <lable>Title</lable>
+            <input type="text" name="ticket[title]" placeholder="title">
+        </div>
+
+        <div class="field">
+            <label for="priority">Priority Level</label>
+              <select type="text" name="ticket[priority]" id="priority">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+             </select>
+        </div>
+        <div class="field">
+            <lable>Issue description</lable>
+            <textarea name="ticket[description]"></textarea>
+        </div>
+        <div class="field">
+            <label>State</label>
+              <select type="text" name="ticket[state]">
+                <option>Work in Progress</option>
+                <option>Pending</option>
+                <option>Resolved</option>
+             </select>
+        </div>
+        <button type="submit" class="positive ui button big">Submit</button>
+    </form>
+</div>
+
+<% include ./partials/footer %>

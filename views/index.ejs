@@ -1,0 +1,49 @@
+<% include ./partials/header %>
+
+<div class="ui main text container">
+    <!--<div class="ui hude header" id="title">SLAme</div>-->
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            
+            
+            <% ticket.forEach(function(ticket){ %>
+            
+                <div class="item">
+                    <div class="content">
+                        <a class="header" href="/tickets/<%= ticket._id %>"><%=ticket.title%></a>
+                        <div class="meta">
+                            <span>Reference Number: <%= ticket._id %></span>
+                        </div>
+                        <div class="meta">
+                            <span><%= ticket.created.toDateString() %></span>
+                        </div>
+                        <div class="meta">
+                            <p>Priority Level: <%= ticket.priority %></p>
+                        </div>
+                        <div class="meta">
+                            <p>State: <%= ticket.state %></p>
+                        </div>
+                        <div class="description">
+                            <p><%- ticket.description.substring(0, 100) %>...</p>
+                        </div>
+                        <div class="extra">
+                            <a style="color: #2185D0;" href="/tickets/<%=ticket._id %>"><div class="ui animated button" id="animatedBtn" tabindex="0">
+                               <div class="visible content">Read More</div>
+                            <div class="hidden content">
+                               <i class="right chevron icon"></i>
+                            </div>
+                            </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+            <% }) %>
+            
+        </div>
+    </div>
+</div>
+
+
+<% include ./partials/footer %>
