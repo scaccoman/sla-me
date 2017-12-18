@@ -1,5 +1,5 @@
-**SLAme**
+#SLAme
 
-Personal ticketing system.
+*Personal ticketing system*
 
-Give your boring to-do list a new twist.
+Give your boring to-do list a new twist
