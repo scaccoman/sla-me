@@ -4,4 +4,4 @@
 
 Give your boring to-do list a new twist
 
-Live demo at: https://blooming-refuge-33295.herokuapp.com
+Here's a live demo: [click here](https://blooming-refuge-33295.herokuapp.com)
